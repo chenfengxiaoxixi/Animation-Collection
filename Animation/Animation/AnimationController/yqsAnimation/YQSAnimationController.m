@@ -41,7 +41,7 @@
     
     for (int i = 0; i< 32; i++) {
         
-        int x = rand()%160;
+        int x = rand()%215;
         int y = rand()%60 + 60;
         
         UIImageView * yb = [[UIImageView alloc]initWithFrame:CGRectMake(x + MinX(yqsImage), y + MinY(yqsImage), 20, 20)];
@@ -108,7 +108,7 @@
         
         UIImageView * yb = ybArray[i];
         
-        int x = rand()%160;
+        int x = rand()%215;
         int y = rand()%60 + 60;
         yb.frame = CGRectMake(x + MinX(yqsImage), y + MinY(yqsImage), yb.frame.size.width, yb.frame.size.height);
         

@@ -22,17 +22,21 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     
-    bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, TopHeight, Main_Screen_Width, Main_Screen_Height - TopHeight)];
-    bgImage.image = [UIImage imageNamed:@"yqs_bg.png"];
+    [self buildUI];
+}
+
+- (void)buildUI
+{
+    bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, Main_Screen_Height)];
+    bgImage.image = [UIImage imageNamed:@"yqs_bg"];
     bgImage.userInteractionEnabled = YES;
     [self.view addSubview:bgImage];
-    [bgImage becomeFirstResponder];
+    //[bgImage becomeFirstResponder];
     
-    yqsImage = [[UIImageView alloc]initWithFrame:CGRectMake(Main_Screen_Width/2- 215/2, Main_Screen_Height - 245 - 200, 215 ,245)];
-    yqsImage.image = [UIImage imageNamed:@"yqs_shu.png"];
+    yqsImage = [[UIImageView alloc]initWithFrame:CGRectMake(Main_Screen_Width/2- 215/2, Main_Screen_Height - 245 - 140, 215 ,245)];
+    yqsImage.image = [UIImage imageNamed:@"yqs_shu"];
     
     CALayer * imageLayer = [yqsImage layer];
     imageLayer.anchorPoint = CGPointMake(0.5, 0.8);//锚点值改变，会影响坐标
@@ -40,7 +44,7 @@
     ybArray = [[NSMutableArray alloc] init];
     
     for (int i = 0; i< 32; i++) {
-        
+        //生成随机坐标
         int x = rand()%215;
         int y = rand()%60 + 60;
         
@@ -55,16 +59,22 @@
     [bgImage addSubview:yqsImage];
     
     UIImageView * caibao = [[UIImageView alloc] initWithFrame:CGRectMake(Main_Screen_Width/2 - (169*1.5)/2, MaxY(yqsImage) - 50, 169 *1.5, 77 * 1.5)];
-    caibao.image = [UIImage imageNamed:@"yqs_caibao.png"];
+    caibao.image = [UIImage imageNamed:@"yqs_caibao"];
     [bgImage addSubview:caibao];
     
-    
+    //说明
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 160, Main_Screen_Width - 30, 20)];
+    label.text = @"tips:左右摇晃手机，触发动画";
+    label.font = SYSTEMFONT(16);
+    label.textColor = kRedColor;
+    [bgImage addSubview:label];
 }
+
+#pragma mark - method
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     NSLog(@"%@",NSStringFromSelector(_cmd));
-    
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
@@ -84,18 +94,14 @@
 //摇钱树
 - (void)shakeYQS:(UIImageView *)view
 {
-    //    CAAnimationGroup * group = [CAAnimationGroup animation];
-    
     //表示以z坐标轴为中心轴旋转
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.z"];
     animation.values = @[@(0),@(-M_PI_4/2),@(0),@(M_PI_4/2),@(0),
                          @(-M_PI_4/3),@(0),@(M_PI_4/3),@(0),
                          @(-M_PI_4/4),@(0),@(M_PI_4/4),@(0),
-                         @(-M_PI_4/5),@(0),@(M_PI_4/6),@(0)];
+                         @(-M_PI_4/5),@(0),@(M_PI_4/6),@(0)];//设置树的摇晃幅度,分母变大表示摇晃幅度越来越小，不断h衰减至0。
     animation.repeatCount = 1;
     animation.duration = 1;
-    
-    
     [view.layer addAnimation:animation forKey:@"shake"];
     
 }
@@ -103,7 +109,6 @@
 //元宝掉落
 - (void)ybAnimation
 {
-    
     for (int i = 0; i< ybArray.count; i++) {
         
         UIImageView * yb = ybArray[i];
@@ -111,7 +116,6 @@
         int x = rand()%215;
         int y = rand()%60 + 60;
         yb.frame = CGRectMake(x + MinX(yqsImage), y + MinY(yqsImage), yb.frame.size.width, yb.frame.size.height);
-        
         
         yb.hidden = NO;
         CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
@@ -143,12 +147,6 @@
             imageView.hidden = YES;
         }
     }
-}
-
-- (void)shake:(UIButton *)shake
-{
-    
-    NSLog(@"dasdas");
 }
 
 - (void)didReceiveMemoryWarning

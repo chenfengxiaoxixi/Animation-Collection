@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C4AF30621D0844600E12C5B /* yqs.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AF30521D0844600E12C5B /* yqs.gif */; };
+		0C4AF31021D0C7EC00E12C5B /* CDRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */; };
+		0C4AF31321D0CBE900E12C5B /* RecordAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AF31221D0CBE900E12C5B /* RecordAnimationController.m */; };
+		0C4AF31721D0DAE100E12C5B /* recordCD.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AF31621D0DAE100E12C5B /* recordCD.gif */; };
 		A281DD5F21CDE47B007B4CA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD5E21CDE47B007B4CA7 /* AppDelegate.m */; };
 		A281DD6221CDE47B007B4CA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD6121CDE47B007B4CA7 /* ViewController.m */; };
 		A281DD6521CDE47B007B4CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281DD6321CDE47B007B4CA7 /* Main.storyboard */; };
@@ -21,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C4AF30521D0844600E12C5B /* yqs.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = yqs.gif; path = "../../../gif动画图/yqs.gif"; sourceTree = "<group>"; };
+		0C4AF30E21D0C7EC00E12C5B /* CDRotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDRotationView.h; sourceTree = "<group>"; };
+		0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDRotationView.m; sourceTree = "<group>"; };
+		0C4AF31121D0CBE900E12C5B /* RecordAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordAnimationController.h; sourceTree = "<group>"; };
+		0C4AF31221D0CBE900E12C5B /* RecordAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordAnimationController.m; sourceTree = "<group>"; };
+		0C4AF31621D0DAE100E12C5B /* recordCD.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = recordCD.gif; path = "../../../gif动画图/recordCD.gif"; sourceTree = "<group>"; };
 		A281DD5A21CDE47B007B4CA7 /* Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A281DD5D21CDE47B007B4CA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A281DD5E21CDE47B007B4CA7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,6 +66,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C4AF30421D0841300E12C5B /* GifSrc */ = {
+			isa = PBXGroup;
+			children = (
+				0C4AF31621D0DAE100E12C5B /* recordCD.gif */,
+				0C4AF30521D0844600E12C5B /* yqs.gif */,
+			);
+			path = GifSrc;
+			sourceTree = "<group>";
+		};
+		0C4AF30721D0BEC900E12C5B /* recordAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				0C4AF31121D0CBE900E12C5B /* RecordAnimationController.h */,
+				0C4AF31221D0CBE900E12C5B /* RecordAnimationController.m */,
+				0C4AF30E21D0C7EC00E12C5B /* CDRotationView.h */,
+				0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */,
+			);
+			path = recordAnimation;
+			sourceTree = "<group>";
+		};
 		A281DD5121CDE47B007B4CA7 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +117,7 @@
 				A281DD8021CF6356007B4CA7 /* HomeCollectionViewCell.m */,
 				A281DD6321CDE47B007B4CA7 /* Main.storyboard */,
 				A281DD6621CDE47C007B4CA7 /* Assets.xcassets */,
+				0C4AF30421D0841300E12C5B /* GifSrc */,
 				A281DD6821CDE47C007B4CA7 /* LaunchScreen.storyboard */,
 				A281DD6B21CDE47C007B4CA7 /* Info.plist */,
 				A281DD6C21CDE47C007B4CA7 /* main.m */,
@@ -117,6 +148,7 @@
 		A281DD7A21CE4FF0007B4CA7 /* AnimationController */ = {
 			isa = PBXGroup;
 			children = (
+				0C4AF30721D0BEC900E12C5B /* recordAnimation */,
 				A281DD7B21CF615E007B4CA7 /* yqsAnimation */,
 			);
 			path = AnimationController;
@@ -197,8 +229,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C4AF30621D0844600E12C5B /* yqs.gif in Resources */,
 				A281DD6A21CDE47C007B4CA7 /* LaunchScreen.storyboard in Resources */,
 				A281DD6721CDE47C007B4CA7 /* Assets.xcassets in Resources */,
+				0C4AF31721D0DAE100E12C5B /* recordCD.gif in Resources */,
 				A281DD6521CDE47B007B4CA7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,9 +247,11 @@
 				A281DD7821CDEB25007B4CA7 /* UIView+Frame.m in Sources */,
 				A281DD8821CF6714007B4CA7 /* UIColor+HexColor.m in Sources */,
 				A281DD6221CDE47B007B4CA7 /* ViewController.m in Sources */,
+				0C4AF31321D0CBE900E12C5B /* RecordAnimationController.m in Sources */,
 				A281DD7E21CF6190007B4CA7 /* YQSAnimationController.m in Sources */,
 				A281DD6D21CDE47C007B4CA7 /* main.m in Sources */,
 				A281DD5F21CDE47B007B4CA7 /* AppDelegate.m in Sources */,
+				0C4AF31021D0C7EC00E12C5B /* CDRotationView.m in Sources */,
 				A281DD8521CF663C007B4CA7 /* BaseViewController.m in Sources */,
 				A281DD8121CF6356007B4CA7 /* HomeCollectionViewCell.m in Sources */,
 			);

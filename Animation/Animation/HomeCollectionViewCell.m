@@ -31,8 +31,8 @@
         
         _titleStr = [[UILabel alloc] initWithFrame:CGRectMake(15, self.width + 80, self.width - 30, 20)];
         _titleStr.textAlignment = NSTextAlignmentCenter;
-        _titleStr.font = SYSTEMFONT(18);
-        _titleStr.textColor = kWhiteColor;
+        _titleStr.font = SYSTEMFONT(16);
+        _titleStr.textColor = kDarkGrayColor;
         [self.contentView addSubview:_titleStr];
     
 }

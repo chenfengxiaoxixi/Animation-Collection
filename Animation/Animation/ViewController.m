@@ -23,13 +23,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"简单动画";
+    
     [self buildUIStyle];
-    
-    self.title = @"动画集合";
-    
-    _array = @[@{@"title":@"摇钱树",@"controller":@"YQSAnimationController"},
-               @{@"title":@"唱针动画",@"controller":@"RecordAnimationController"}];
-    
+    [self configController];
     [self handleGifSrc];
     
     [self.view addSubview:self.collectionView];
@@ -62,10 +59,18 @@
     [self.view addSubview:beijing];
 }
 
+- (void)configController
+{
+    _array = @[@{@"title":@"摇钱树",@"controller":@"YQSAnimationController"},
+               @{@"title":@"唱片",@"controller":@"RecordAnimationController"},
+               @{@"title":@"闪烁",@"controller":@"FlashAnimationController"},
+               @{@"title":@"扇形统计图",@"controller":@"SectorChartController"}];
+}
+
 - (void)handleGifSrc
 {
     _gifImages = [[NSMutableArray alloc] init];
-    NSArray *array = @[@"yqs",@"recordCD"];
+    NSArray *array = @[@"yqs",@"recordCD",@"flashing",@"flashing"];
     
     for (int i = 0; i < array.count; i++) {
         
@@ -86,7 +91,7 @@
     
     size_t gifcount = CGImageSourceGetCount(gifSource);
     
-    NSMutableArray *imageS = [[NSMutableArray alloc] init];
+    NSMutableArray *images = [[NSMutableArray alloc] init];
     
     for (NSInteger i = 0; i < gifcount; i++) {
         
@@ -96,14 +101,14 @@
         
         UIImage *image = [UIImage imageWithCGImage:imageRef];
         
-        [imageS addObject:image];
+        [images addObject:image];
         
         CGImageRelease(imageRef);
         
     }
     
     //得到图片数组
-    return imageS;
+    return images;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -160,6 +165,7 @@
 }
 
 #pragma mark --UICollectionViewDelegate
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dic = _array[indexPath.row];

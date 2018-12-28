@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1EC81A21D5C6510009C73B /* SectorChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1EC81921D5C6510009C73B /* SectorChartController.m */; };
 		0C4AF30621D0844600E12C5B /* yqs.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AF30521D0844600E12C5B /* yqs.gif */; };
 		0C4AF31021D0C7EC00E12C5B /* CDRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */; };
 		0C4AF31321D0CBE900E12C5B /* RecordAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AF31221D0CBE900E12C5B /* RecordAnimationController.m */; };
 		0C4AF31721D0DAE100E12C5B /* recordCD.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AF31621D0DAE100E12C5B /* recordCD.gif */; };
+		0C8BAC5A21D22D7500C400B5 /* FlashAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BAC5921D22D7500C400B5 /* FlashAnimationController.m */; };
+		0CAD582621D35D02005A9C16 /* flashing.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD582521D35D02005A9C16 /* flashing.gif */; };
 		A281DD5F21CDE47B007B4CA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD5E21CDE47B007B4CA7 /* AppDelegate.m */; };
 		A281DD6221CDE47B007B4CA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD6121CDE47B007B4CA7 /* ViewController.m */; };
 		A281DD6521CDE47B007B4CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281DD6321CDE47B007B4CA7 /* Main.storyboard */; };
@@ -25,12 +28,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C1EC81821D5C6510009C73B /* SectorChartController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorChartController.h; sourceTree = "<group>"; };
+		0C1EC81921D5C6510009C73B /* SectorChartController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectorChartController.m; sourceTree = "<group>"; };
 		0C4AF30521D0844600E12C5B /* yqs.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = yqs.gif; path = "../../../gif动画图/yqs.gif"; sourceTree = "<group>"; };
 		0C4AF30E21D0C7EC00E12C5B /* CDRotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDRotationView.h; sourceTree = "<group>"; };
 		0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDRotationView.m; sourceTree = "<group>"; };
 		0C4AF31121D0CBE900E12C5B /* RecordAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordAnimationController.h; sourceTree = "<group>"; };
 		0C4AF31221D0CBE900E12C5B /* RecordAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordAnimationController.m; sourceTree = "<group>"; };
 		0C4AF31621D0DAE100E12C5B /* recordCD.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = recordCD.gif; path = "../../../gif动画图/recordCD.gif"; sourceTree = "<group>"; };
+		0C8BAC5821D22D7500C400B5 /* FlashAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashAnimationController.h; sourceTree = "<group>"; };
+		0C8BAC5921D22D7500C400B5 /* FlashAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlashAnimationController.m; sourceTree = "<group>"; };
+		0CAD582521D35D02005A9C16 /* flashing.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = flashing.gif; sourceTree = "<group>"; };
 		A281DD5A21CDE47B007B4CA7 /* Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A281DD5D21CDE47B007B4CA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A281DD5E21CDE47B007B4CA7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,9 +74,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C1EC81721D5C6390009C73B /* sectorChartController */ = {
+			isa = PBXGroup;
+			children = (
+				0C1EC81821D5C6510009C73B /* SectorChartController.h */,
+				0C1EC81921D5C6510009C73B /* SectorChartController.m */,
+			);
+			path = sectorChartController;
+			sourceTree = "<group>";
+		};
 		0C4AF30421D0841300E12C5B /* GifSrc */ = {
 			isa = PBXGroup;
 			children = (
+				0CAD582521D35D02005A9C16 /* flashing.gif */,
 				0C4AF31621D0DAE100E12C5B /* recordCD.gif */,
 				0C4AF30521D0844600E12C5B /* yqs.gif */,
 			);
@@ -84,6 +102,15 @@
 				0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */,
 			);
 			path = recordAnimation;
+			sourceTree = "<group>";
+		};
+		0C8BAC5721D22CAB00C400B5 /* flashAnimationController */ = {
+			isa = PBXGroup;
+			children = (
+				0C8BAC5821D22D7500C400B5 /* FlashAnimationController.h */,
+				0C8BAC5921D22D7500C400B5 /* FlashAnimationController.m */,
+			);
+			path = flashAnimationController;
 			sourceTree = "<group>";
 		};
 		A281DD5121CDE47B007B4CA7 = {
@@ -148,6 +175,8 @@
 		A281DD7A21CE4FF0007B4CA7 /* AnimationController */ = {
 			isa = PBXGroup;
 			children = (
+				0C1EC81721D5C6390009C73B /* sectorChartController */,
+				0C8BAC5721D22CAB00C400B5 /* flashAnimationController */,
 				0C4AF30721D0BEC900E12C5B /* recordAnimation */,
 				A281DD7B21CF615E007B4CA7 /* yqsAnimation */,
 			);
@@ -229,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CAD582621D35D02005A9C16 /* flashing.gif in Resources */,
 				0C4AF30621D0844600E12C5B /* yqs.gif in Resources */,
 				A281DD6A21CDE47C007B4CA7 /* LaunchScreen.storyboard in Resources */,
 				A281DD6721CDE47C007B4CA7 /* Assets.xcassets in Resources */,
@@ -248,9 +278,11 @@
 				A281DD8821CF6714007B4CA7 /* UIColor+HexColor.m in Sources */,
 				A281DD6221CDE47B007B4CA7 /* ViewController.m in Sources */,
 				0C4AF31321D0CBE900E12C5B /* RecordAnimationController.m in Sources */,
+				0C8BAC5A21D22D7500C400B5 /* FlashAnimationController.m in Sources */,
 				A281DD7E21CF6190007B4CA7 /* YQSAnimationController.m in Sources */,
 				A281DD6D21CDE47C007B4CA7 /* main.m in Sources */,
 				A281DD5F21CDE47B007B4CA7 /* AppDelegate.m in Sources */,
+				0C1EC81A21D5C6510009C73B /* SectorChartController.m in Sources */,
 				0C4AF31021D0C7EC00E12C5B /* CDRotationView.m in Sources */,
 				A281DD8521CF663C007B4CA7 /* BaseViewController.m in Sources */,
 				A281DD8121CF6356007B4CA7 /* HomeCollectionViewCell.m in Sources */,
@@ -330,7 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -382,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

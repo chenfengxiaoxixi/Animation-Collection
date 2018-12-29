@@ -8,34 +8,17 @@
 
 #import "SectorChartController.h"
 
-CATransform3D CATransform3DMakePerspective(CGPoint center, float disZ)
-
-{
-    CATransform3D transToCenter = CATransform3DMakeTranslation(-center.x, -center.y, 0);
-    
-    CATransform3D transBack = CATransform3DMakeTranslation(center.x, center.y, 0);
-    
-    CATransform3D scale = CATransform3DIdentity;
-    
-    scale.m34 = -1.0f/disZ;
-    return CATransform3DConcat(CATransform3DConcat(transToCenter, scale), transBack);
-}
-
-
-
-CATransform3D CATransform3DPerspect(CATransform3D t, CGPoint center, float disZ)
-
-{
-    return CATransform3DConcat(t, CATransform3DMakePerspective(center, disZ));
-    
-}
+//半径
+CGFloat radius = 80;
 
 @interface SectorChartController ()<CAAnimationDelegate>
 {
     UIImageView *bgImage;
+    UIView *drawLayerView;
     NSInteger index;
     NSMutableArray *layerArray;
     NSMutableArray *animationTimeArray;
+    NSMutableArray *bezierPathArray;
 }
 
 @end
@@ -48,7 +31,8 @@ CATransform3D CATransform3DPerspect(CATransform3D t, CGPoint center, float�
     
     layerArray = [[NSMutableArray alloc] init];
     animationTimeArray = [[NSMutableArray alloc] init];
-    index = 0;
+    bezierPathArray = [[NSMutableArray alloc] init];
+    index = 1;
     [self buildUI];
 }
 
@@ -59,11 +43,11 @@ CATransform3D CATransform3DPerspect(CATransform3D t, CGPoint center, float�
     bgImage.image = [UIImage imageNamed:@"chart_bg"];
     [self.view addSubview:bgImage];
     
-//    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-//    [bgImage addGestureRecognizer:tapGes];
+    drawLayerView = [[UIView alloc] initWithFrame:CGRectMake(Main_Screen_Width/2 - radius, Main_Screen_Height/2 - radius, radius * 2, radius * 2)];
+    [self.view addSubview:drawLayerView];
     
     //按100正圆来算
-    [self creatSectorWithArray:@[@(60),@(30),@(10)]];
+    [self creatSectorWithArray:@[@(20),@(20),@(20),@(20),@(20)]];
 }
 
 #pragma mark - method
@@ -73,8 +57,6 @@ CATransform3D CATransform3DPerspect(CATransform3D t, CGPoint center, float�
     //绘制扇形
     //开始角
     CGFloat startAngle = -M_PI/2;
-    //最初半径
-    CGFloat radius = 80;
     //结束角
     CGFloat endAngle = startAngle;
     //动画执行总时间
@@ -97,17 +79,25 @@ CATransform3D CATransform3DPerspect(CATransform3D t, CGPoint center, float�
 
         //中心点
         CGPoint center = CGPointMake(radius, radius);
-        //创建圆
-        UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:radius / 2 startAngle:startAngle endAngle:endAngle clockwise:YES];
+        //创建扇形，注意这里的radius还要除以2,和下面设置lineWidth为radius有关
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path addArcWithCenter:center radius:radius/2  startAngle:startAngle endAngle:endAngle clockwise:YES];
         
         CAShapeLayer *sectorLayer = [[CAShapeLayer alloc] init];
-        sectorLayer.frame = CGRectMake(Main_Screen_Width/2 - radius, Main_Screen_Height/2 - radius, radius * 2, radius * 2);
+        sectorLayer.name = [NSString stringWithFormat:@"sector_%d",i];
+        sectorLayer.frame = CGRectMake(0, 0, radius * 2, radius * 2);
         sectorLayer.path = path.CGPath;//设置path
         sectorLayer.strokeColor = randomColor.CGColor;//边框颜色
         sectorLayer.fillColor = kClearColor.CGColor;//内部填充颜色
-        sectorLayer.lineWidth = radius;//边界等于半径，就是一个扇形动画，小于半径时就是一个边界画圆动画
-        //添加layer对象
-        [self.view.layer addSublayer:sectorLayer];
+        sectorLayer.lineWidth = radius;//这里为了实现扇形动画，lineWidth设置为radius，实际圆半径为radius/2，可以想象成，圆边框内外各占一半lineWidth
+        [drawLayerView.layer addSublayer:sectorLayer];
+        
+        UIBezierPath *path2 = [UIBezierPath bezierPath];
+        [path2 addArcWithCenter:center radius:radius  startAngle:startAngle endAngle:endAngle clockwise:YES];
+        
+        [bezierPathArray addObject:path2];
+        [animationTimeArray addObject:@(animationTime)];
+        [layerArray addObject:sectorLayer];
         
         if (i == 0) {
             CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"strokeEnd"];
@@ -123,42 +113,91 @@ CATransform3D CATransform3DPerspect(CATransform3D t, CGPoint center, float�
             [sectorLayer addAnimation:animation forKey:@"sector"];
         }
         else
-        {   //剩下需要动画的layer
+        {   //剩下需要动画的layer先隐藏
             sectorLayer.hidden = YES;
-            [animationTimeArray addObject:@(animationTime)];
-            [layerArray addObject:sectorLayer];
         }
     }
 }
 
-- (void)tap:(UIGestureRecognizer *)tap
-{
-    CGPoint touchPoint = [tap locationInView:bgImage];
-    if ([tap.view.layer.presentationLayer hitTest:touchPoint]) {
+//圆心到点的距离>?半径
+- (BOOL)point:(CGPoint)point inCircleRect:(CGRect)rect {
+    CGFloat radius = rect.size.width/2.0;
+    CGPoint center = CGPointMake(rect.origin.x + radius, rect.origin.y + radius);
+    double dx = fabs(point.x - center.x);
+    double dy = fabs(point.y - center.y);
+    double dis = hypot(dx, dy);
+    if (dis <= radius) {
+        //计算触点和中心点的弧度
+      CGFloat hudu =   [self radiansToDegreesFromPointX:point ToPointY:CGPointMake(80, 160) ToCenter:CGPointMake(80, 80)];
         
+        NSLog(@"hudu = %f",hudu);
         
     }
+    
+    return YES;
+}
+
+//计算触点和中心点的弧度
+-(float)radiansToDegreesFromPointX:(CGPoint)start ToPointY:(CGPoint)end ToCenter:(CGPoint)center{
+    
+    float rads;
+    CGFloat a = (end.x - center.x);
+    CGFloat b = (end.y - center.y);
+    CGFloat c = (start.x- center.x);
+    CGFloat d = (start.y- center.y);
+    rads = acos(((a*c) + (b*d)) / ((sqrt(a*a + b*b)) * (sqrt(c*c + d*d))));
+    if (start.x < center.x) {
+        rads = 2*M_PI - rads;
+        
+    }
+    return rads;
+    
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
-    CGPoint point = [touch locationInView:self.view];
-    CAShapeLayer *layer = [self.view.layer hitTest:point];
-
-    CATransform3D t = CATransform3DIdentity;
-    t.m34 = -0.004;
-    [layer setTransform:t];
-    layer.zPosition = 100;
+    CGPoint point = [touch locationInView:drawLayerView];
     
-    [UIView animateWithDuration:0.25f animations:^{
-        layer.transform = CATransform3DRotate(t, 7/90.0 * M_PI_2, 1, 0, 0);
- 
-    }completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.25f animations:^{
-            layer.transform = CATransform3DTranslate(t, 0, -50, -50);
-        }];
-    }];
+    if ([self point:point inCircleRect:drawLayerView.bounds]) {
+        
+        NSLog(@"在圆圈内");
+        
+    }
+    
+    
+    
+//
+//    //NSLog(@"pointX = %f,pointY = %f,",point.x,point.y);
+//
+//    for (int i = 0; i < bezierPathArray.count; i++) {
+//        UIBezierPath *path = bezierPathArray[i];
+//        if (CGPathContainsPoint(path.CGPath, NULL, point, NO)) {
+//
+//            CAShapeLayer *layer = layerArray[i];
+//
+//            NSLog(@"name = %@",layer.name);
+//
+//        }
+//
+//    }
+   
+//
+//    NSLog(@"layer = %@",layer);
+//
+//    CATransform3D t = CATransform3DIdentity;
+//    t.m34 = 0.004;
+//    [layer setTransform:t];
+//    layer.zPosition = 100;
+//
+//    [UIView animateWithDuration:0.25f animations:^{
+//        layer.transform = CATransform3DRotate(t, 7/90.0 * M_PI_2, 1, 0, 0);
+//
+//    }completion:^(BOOL finished) {
+//        [UIView animateWithDuration:0.25f animations:^{
+//            layer.transform = CATransform3DTranslate(t, 0, -50, -50);
+//        }];
+//    }];
     
     
 //    NSInteger selectedIndex = [self getCurrentSelectedOnTouch:point];
@@ -178,7 +217,7 @@ CATransform3D CATransform3DPerspect(CATransform3D t, CGPoint center, float�
     
     CATransform3D rotate = CATransform3DMakeRotation(M_PI/6, 0, 1, 0);
     
-    layer.transform = CATransform3DPerspect(rotate, CGPointMake(0, 0), 200);
+   // layer.transform = CATransform3DPerspect(rotate, CGPointMake(0, 0), 200);
 
     
 //    CALayer *parentLayer = [_pieView layer];
@@ -221,7 +260,7 @@ CATransform3D CATransform3DPerspect(CATransform3D t, CGPoint center, float�
                 animation.values = @[@0.0,@1.0];
                 animation.duration = animationTime;
                 //添加layer对象
-                [bgImage.layer addSublayer:sectorLayer];
+                [drawLayerView.layer addSublayer:sectorLayer];
                 [animation setValue:@"sectorLayer" forKey:@"AnimationKey"];
                 [sectorLayer addAnimation:animation forKey:@"sector"];
                 

@@ -15,6 +15,7 @@
 #import "UIView+Frame.h"
 #import "UIColor+HexColor.h"
 
+#import "MathTool.h"
 #import "MacroDefinition.h"
 
 #endif /* PrefixHeader_pch */

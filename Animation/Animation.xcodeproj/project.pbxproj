@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C1EC81A21D5C6510009C73B /* SectorChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1EC81921D5C6510009C73B /* SectorChartController.m */; };
+		0C3E94B221D775A300038430 /* MathTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3E94B121D775A300038430 /* MathTool.m */; };
 		0C4AF30621D0844600E12C5B /* yqs.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AF30521D0844600E12C5B /* yqs.gif */; };
 		0C4AF31021D0C7EC00E12C5B /* CDRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */; };
 		0C4AF31321D0CBE900E12C5B /* RecordAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AF31221D0CBE900E12C5B /* RecordAnimationController.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		0C1EC81821D5C6510009C73B /* SectorChartController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorChartController.h; sourceTree = "<group>"; };
 		0C1EC81921D5C6510009C73B /* SectorChartController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectorChartController.m; sourceTree = "<group>"; };
+		0C3E94B021D775A300038430 /* MathTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathTool.h; sourceTree = "<group>"; };
+		0C3E94B121D775A300038430 /* MathTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathTool.m; sourceTree = "<group>"; };
 		0C4AF30521D0844600E12C5B /* yqs.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = yqs.gif; path = "../../../gif动画图/yqs.gif"; sourceTree = "<group>"; };
 		0C4AF30E21D0C7EC00E12C5B /* CDRotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDRotationView.h; sourceTree = "<group>"; };
 		0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDRotationView.m; sourceTree = "<group>"; };
@@ -83,6 +86,15 @@
 			path = sectorChartController;
 			sourceTree = "<group>";
 		};
+		0C3E94AF21D7758100038430 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				0C3E94B021D775A300038430 /* MathTool.h */,
+				0C3E94B121D775A300038430 /* MathTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		0C4AF30421D0841300E12C5B /* GifSrc */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +144,7 @@
 		A281DD5C21CDE47B007B4CA7 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				0C3E94AF21D7758100038430 /* Tool */,
 				A281DD8221CF65D0007B4CA7 /* Base */,
 				A281DD7421CDE7B0007B4CA7 /* Category */,
 				A281DD7321CDE7AF007B4CA7 /* PCH */,
@@ -279,6 +292,7 @@
 				A281DD6221CDE47B007B4CA7 /* ViewController.m in Sources */,
 				0C4AF31321D0CBE900E12C5B /* RecordAnimationController.m in Sources */,
 				0C8BAC5A21D22D7500C400B5 /* FlashAnimationController.m in Sources */,
+				0C3E94B221D775A300038430 /* MathTool.m in Sources */,
 				A281DD7E21CF6190007B4CA7 /* YQSAnimationController.m in Sources */,
 				A281DD6D21CDE47C007B4CA7 /* main.m in Sources */,
 				A281DD5F21CDE47B007B4CA7 /* AppDelegate.m in Sources */,

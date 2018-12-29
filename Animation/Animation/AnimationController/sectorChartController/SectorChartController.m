@@ -7,18 +7,38 @@
 //
 
 #import "SectorChartController.h"
-
 //半径
 CGFloat radius = 80;
+
+//扇形对象
+@interface Sector : NSObject
+
+@property (nonatomic, assign) CGFloat animationTime;
+@property (nonatomic, assign) CGFloat startAngle;
+@property (nonatomic, assign) CGFloat endAngle;
+@property (nonatomic, strong) CAShapeLayer *shapeLayer;
+
+@end
+
+@implementation Sector
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+@end
 
 @interface SectorChartController ()<CAAnimationDelegate>
 {
     UIImageView *bgImage;
     UIView *drawLayerView;
     NSInteger index;
-    NSMutableArray *layerArray;
-    NSMutableArray *animationTimeArray;
-    NSMutableArray *bezierPathArray;
+    NSMutableArray *sectorArray;
 }
 
 @end
@@ -28,10 +48,8 @@ CGFloat radius = 80;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    layerArray = [[NSMutableArray alloc] init];
-    animationTimeArray = [[NSMutableArray alloc] init];
-    bezierPathArray = [[NSMutableArray alloc] init];
+
+    sectorArray = [[NSMutableArray alloc] init];
     index = 1;
     [self buildUI];
 }
@@ -39,7 +57,6 @@ CGFloat radius = 80;
 - (void)buildUI
 {
     bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, Main_Screen_Height)];
-    //bgImage.userInteractionEnabled = YES;
     bgImage.image = [UIImage imageNamed:@"chart_bg"];
     [self.view addSubview:bgImage];
     
@@ -61,10 +78,12 @@ CGFloat radius = 80;
     CGFloat endAngle = startAngle;
     //动画执行总时间
     CGFloat totalAnimationTime = 2;
+    //中心点
+    CGPoint center = CGPointMake(radius, radius);
     
     for (int i = 0; i < dataSource.count; i++) {
         
-        CGFloat radio = [dataSource[i] integerValue]/100.f;
+        CGFloat radio = [dataSource[i] floatValue]/100.f;
         //转动弧度
         CGFloat rotationalRadian = 2*M_PI * radio;
         //每个扇形动画的执行时间
@@ -77,11 +96,9 @@ CGFloat radius = 80;
         
         endAngle = startAngle + rotationalRadian;
 
-        //中心点
-        CGPoint center = CGPointMake(radius, radius);
         //创建扇形，注意这里的radius还要除以2,和下面设置lineWidth为radius有关
         UIBezierPath *path = [UIBezierPath bezierPath];
-        [path addArcWithCenter:center radius:radius/2  startAngle:startAngle endAngle:endAngle clockwise:YES];
+        [path addArcWithCenter:center radius:radius/2 startAngle:startAngle endAngle:endAngle clockwise:YES];
         
         CAShapeLayer *sectorLayer = [[CAShapeLayer alloc] init];
         sectorLayer.name = [NSString stringWithFormat:@"sector_%d",i];
@@ -92,13 +109,17 @@ CGFloat radius = 80;
         sectorLayer.lineWidth = radius;//这里为了实现扇形动画，lineWidth设置为radius，实际圆半径为radius/2，可以想象成，圆边框内外各占一半lineWidth
         [drawLayerView.layer addSublayer:sectorLayer];
         
-        UIBezierPath *path2 = [UIBezierPath bezierPath];
-        [path2 addArcWithCenter:center radius:radius  startAngle:startAngle endAngle:endAngle clockwise:YES];
-        
-        [bezierPathArray addObject:path2];
-        [animationTimeArray addObject:@(animationTime)];
-        [layerArray addObject:sectorLayer];
-        
+        //每个扇形对象
+        Sector *sector = [[Sector alloc] init];
+        //起始角度为-90度，整体加上90度是为了和计算出的触点夹角统一起始角度
+        sector.startAngle = (180/M_PI) * startAngle + 90;
+        sector.endAngle = (180/M_PI) * endAngle + 90;
+        sector.shapeLayer = sectorLayer;
+        sector.animationTime = animationTime;
+
+        [sectorArray addObject:sector];
+        //NSLog(@"start = %f,end = %f",radian.startRadian,radian.endRadian);
+    
         if (i == 0) {
             CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"strokeEnd"];
             animation.delegate = self;
@@ -119,53 +140,16 @@ CGFloat radius = 80;
     }
 }
 
-//圆心到点的距离>?半径
-- (BOOL)point:(CGPoint)point inCircleRect:(CGRect)rect {
-    CGFloat radius = rect.size.width/2.0;
-    CGPoint center = CGPointMake(rect.origin.x + radius, rect.origin.y + radius);
-    double dx = fabs(point.x - center.x);
-    double dy = fabs(point.y - center.y);
-    double dis = hypot(dx, dy);
-    if (dis <= radius) {
-        //计算触点和中心点的弧度
-      CGFloat hudu =   [self radiansToDegreesFromPointX:point ToPointY:CGPointMake(80, 160) ToCenter:CGPointMake(80, 80)];
-        
-        NSLog(@"hudu = %f",hudu);
-        
-    }
-    
-    return YES;
-}
-
-//计算触点和中心点的弧度
--(float)radiansToDegreesFromPointX:(CGPoint)start ToPointY:(CGPoint)end ToCenter:(CGPoint)center{
-    
-    float rads;
-    CGFloat a = (end.x - center.x);
-    CGFloat b = (end.y - center.y);
-    CGFloat c = (start.x- center.x);
-    CGFloat d = (start.y- center.y);
-    rads = acos(((a*c) + (b*d)) / ((sqrt(a*a + b*b)) * (sqrt(c*c + d*d))));
-    if (start.x < center.x) {
-        rads = 2*M_PI - rads;
-        
-    }
-    return rads;
-    
-}
-
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:drawLayerView];
     
-    if ([self point:point inCircleRect:drawLayerView.bounds]) {
+    //先判断是否在园内
+    if ([MathTool point:point inCircleRect:drawLayerView.bounds]) {
         
-        NSLog(@"在圆圈内");
-        
+        [self calculatedPointInWhichRegion:point];
     }
-    
-    
     
 //
 //    //NSLog(@"pointX = %f,pointY = %f,",point.x,point.y);
@@ -203,6 +187,38 @@ CGFloat radius = 80;
 //    NSInteger selectedIndex = [self getCurrentSelectedOnTouch:point];
 //    //[self notifyDelegateOfSelectionChangeFrom:_selectedSliceIndex to:selectedIndex];
 //    [self touchesCancelled:touches withEvent:event];
+}
+
+//计算触点在哪个扇形
+- (void)calculatedPointInWhichRegion:(CGPoint)point
+{
+    //起始边到触点的弧度
+    CGFloat radian = [MathTool radiansToDegreesFromPointX:CGPointMake(radius, 0) ToPointY:point ToCenter:CGPointMake(radius, radius)];
+    //弧长
+    CGFloat l = radian * radius;
+    //夹角
+    CGFloat n = (180 * l)/(M_PI * radius);
+    
+    //如果endPoint在坐标轴第三象限
+    if ((point.x >= 0 && point.x <= radius) &&
+        (point.y >= radius && point.y <= radius*2)) {
+        n = 360 - n;
+    }
+    //如果endPoint在坐标轴第四象限
+    else if ((point.x >= 0 && point.x <= radius) &&
+             (point.y >= 0 && point.y <= radius))
+    {
+        n = 360 - n;
+    }
+    
+    //NSLog(@"n = %f",n);
+    
+    for (Sector *sector in sectorArray) {
+        
+        if (sector.startAngle <= n && n <= sector.endAngle) {
+            NSLog(@"name = %@",sector.shapeLayer.name);
+        }
+    }
 }
 
 - (NSInteger)getCurrentSelectedOnTouch:(CGPoint)point
@@ -249,11 +265,13 @@ CGFloat radius = 80;
     if (flag) {
         if ([[anim valueForKey:@"AnimationKey"] isEqualToString:@"sectorLayer"]) {
 
-            if (index < layerArray.count) {
+            if (index < sectorArray.count) {
                 
-                CAShapeLayer *sectorLayer = layerArray[index];
+                Sector *sector = sectorArray[index];
+                
+                CAShapeLayer *sectorLayer = sector.shapeLayer;
                 sectorLayer.hidden = NO;
-                CGFloat animationTime = [animationTimeArray[index] floatValue];
+                CGFloat animationTime = sector.animationTime;
                 
                 CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"strokeEnd"];
                 animation.delegate = self;

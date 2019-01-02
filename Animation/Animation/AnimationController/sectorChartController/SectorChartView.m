@@ -15,6 +15,7 @@
 @property (nonatomic, assign) CGFloat startAngle;
 @property (nonatomic, assign) CGFloat endAngle;
 @property (nonatomic, strong) CAShapeLayer *shapeLayer;
+@property (nonatomic, assign) BOOL isSelected;
 
 @end
 
@@ -39,7 +40,6 @@
     //半径
     CGFloat radius;
 }
-
 
 @end
 
@@ -70,9 +70,9 @@
     //计算总数据
     NSNumber *sum = [dataSourceArray valueForKeyPath:@"@sum.floatValue"];
     //开始角
-    CGFloat startAngle = -M_PI/2;
+    CGFloat startRadian = -M_PI/2;
     //结束角
-    CGFloat endAngle = startAngle;
+    CGFloat endRadian = startRadian;
     //动画执行总时间
     CGFloat totalAnimationTime = 1.5;
     //中心点
@@ -88,14 +88,14 @@
         
         //下一个扇形的开始角为上一个扇形的结束角
         if (i > 0) {
-            startAngle = endAngle;
+            startRadian = endRadian;
         }
         
-        endAngle = startAngle + rotationalRadian;
+        endRadian = startRadian + rotationalRadian;
         
         //创建扇形，注意这里的radius还要除以2,和下面设置lineWidth为radius有关
         UIBezierPath *path = [UIBezierPath bezierPath];
-        [path addArcWithCenter:center radius:radius/2 startAngle:startAngle endAngle:endAngle clockwise:YES];
+        [path addArcWithCenter:center radius:radius/2 startAngle:startRadian endAngle:endRadian clockwise:YES];
         
         CAShapeLayer *sectorLayer = [[CAShapeLayer alloc] init];
         sectorLayer.name = [NSString stringWithFormat:@"sector_%d",i];
@@ -106,11 +106,17 @@
         sectorLayer.lineWidth = radius;//这里为了实现扇形动画，lineWidth设置为radius，实际UIBezierPath圆内半径为radius/2，可以想象成，圆边框内外各占一半，组合成的lineWidth
         [self.layer addSublayer:sectorLayer];
         
+        UIBezierPath *path2 = [UIBezierPath bezierPath];
+        [path2 addArcWithCenter:center radius:radius startAngle:startRadian endAngle:endRadian clockwise:YES];
+        
+        //CGFloat theta0 = acos((path2.currentPoint.x-80)/radius);
+        
+        
         //每个扇形对象
         Sector *sector = [[Sector alloc] init];
         //起始角度为-90度，整体加上90度是为了和计算出的触点夹角统一起始角度
-        sector.startAngle = (180/M_PI) * startAngle + 90;
-        sector.endAngle = (180/M_PI) * endAngle + 90;
+        sector.startAngle = (180/M_PI) * startRadian + 90;
+        sector.endAngle = (180/M_PI) * endRadian + 90;
         sector.shapeLayer = sectorLayer;
         sector.animationTime = animationTime;
         
@@ -180,13 +186,36 @@
         Sector *sector = sectorArray[i];
         
         if (sector.startAngle <= n && n <= sector.endAngle) {
-            NSLog(@"name = %@",sector.shapeLayer.name);
             
+            sector.isSelected = !sector.isSelected;
+
+            NSLog(@"name = %@",sector.shapeLayer.name);
             if ([self.delegate respondsToSelector:@selector(sectorChart:didSelectedWithIndex:)]) {
-                [self.delegate sectorChart:self didSelectedWithIndex:i];
+                 [self.delegate sectorChart:self didSelectedWithIndex:i];
             }
+            
+            [self sectorAnimation:sector];
+            
         }
     }
+}
+
+- (void)sectorAnimation:(Sector *)sector
+{
+    if (sector.isSelected) {
+        CATransform3D t = CATransform3DIdentity;
+        t.m34 = -1/1000;
+        
+        [UIView animateWithDuration:0.25f animations:^{
+            
+            sector.shapeLayer.transform = CATransform3DTranslate(t, 5, -3, 10);
+        }];
+    }
+    else
+    {
+        sector.shapeLayer.transform = CATransform3DIdentity;
+    }
+    
 }
 
 #pragma mark - CAAnimationDelegate

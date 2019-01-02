@@ -19,6 +19,7 @@
 
 @protocol SectorChartDelegate <NSObject>
 
+@required
 - (void)sectorChart:(SectorChartView *)sectorChart didSelectedWithIndex:(NSInteger )index;
 
 @end

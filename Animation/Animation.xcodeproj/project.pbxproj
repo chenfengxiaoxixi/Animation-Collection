@@ -15,6 +15,7 @@
 		0C4AF31721D0DAE100E12C5B /* recordCD.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AF31621D0DAE100E12C5B /* recordCD.gif */; };
 		0C8BAC5A21D22D7500C400B5 /* FlashAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BAC5921D22D7500C400B5 /* FlashAnimationController.m */; };
 		0CAD582621D35D02005A9C16 /* flashing.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD582521D35D02005A9C16 /* flashing.gif */; };
+		A26A657421DA43AB002DC770 /* SectorChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A26A657321DA43AB002DC770 /* SectorChartView.m */; };
 		A281DD5F21CDE47B007B4CA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD5E21CDE47B007B4CA7 /* AppDelegate.m */; };
 		A281DD6221CDE47B007B4CA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD6121CDE47B007B4CA7 /* ViewController.m */; };
 		A281DD6521CDE47B007B4CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281DD6321CDE47B007B4CA7 /* Main.storyboard */; };
@@ -42,6 +43,8 @@
 		0C8BAC5821D22D7500C400B5 /* FlashAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashAnimationController.h; sourceTree = "<group>"; };
 		0C8BAC5921D22D7500C400B5 /* FlashAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlashAnimationController.m; sourceTree = "<group>"; };
 		0CAD582521D35D02005A9C16 /* flashing.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = flashing.gif; sourceTree = "<group>"; };
+		A26A657221DA43AB002DC770 /* SectorChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorChartView.h; sourceTree = "<group>"; };
+		A26A657321DA43AB002DC770 /* SectorChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectorChartView.m; sourceTree = "<group>"; };
 		A281DD5A21CDE47B007B4CA7 /* Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A281DD5D21CDE47B007B4CA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A281DD5E21CDE47B007B4CA7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 			children = (
 				0C1EC81821D5C6510009C73B /* SectorChartController.h */,
 				0C1EC81921D5C6510009C73B /* SectorChartController.m */,
+				A26A657221DA43AB002DC770 /* SectorChartView.h */,
+				A26A657321DA43AB002DC770 /* SectorChartView.m */,
 			);
 			path = sectorChartController;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				A281DD6221CDE47B007B4CA7 /* ViewController.m in Sources */,
 				0C4AF31321D0CBE900E12C5B /* RecordAnimationController.m in Sources */,
 				0C8BAC5A21D22D7500C400B5 /* FlashAnimationController.m in Sources */,
+				A26A657421DA43AB002DC770 /* SectorChartView.m in Sources */,
 				0C3E94B221D775A300038430 /* MathTool.m in Sources */,
 				A281DD7E21CF6190007B4CA7 /* YQSAnimationController.m in Sources */,
 				A281DD6D21CDE47C007B4CA7 /* main.m in Sources */,

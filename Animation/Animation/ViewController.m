@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *array;
 @property (nonatomic, strong) NSMutableArray *gifImages;
+@property (nonatomic, strong) NSMutableArray *animationTimeArray;
 
 @end
 
@@ -64,13 +65,15 @@
     _array = @[@{@"title":@"摇钱树",@"controller":@"YQSAnimationController"},
                @{@"title":@"唱片",@"controller":@"RecordAnimationController"},
                @{@"title":@"闪烁",@"controller":@"FlashAnimationController"},
-               @{@"title":@"扇形统计图",@"controller":@"SectorChartController"}];
+               @{@"title":@"扇形统计图",@"controller":@"SectorChartController"},
+               @{@"title":@"曲线运动",@"controller":@"CurvilinearMotionController"}];
 }
 
 - (void)handleGifSrc
 {
     _gifImages = [[NSMutableArray alloc] init];
-    NSArray *array = @[@"yqs",@"recordCD",@"flashing",@"flashing"];
+    _animationTimeArray = [[NSMutableArray alloc] init];
+    NSArray *array = @[@"yqs",@"recordCD",@"flashing",@"sectorChart",@"sectorChart"];
     
     for (int i = 0; i < array.count; i++) {
         
@@ -90,6 +93,10 @@
     //获取Gif图有多少帧
     
     size_t gifcount = CGImageSourceGetCount(gifSource);
+    
+    CGFloat animationTime = gifcount/15.f;
+    
+    [_animationTimeArray addObject:@(animationTime)];
     
     NSMutableArray *images = [[NSMutableArray alloc] init];
     
@@ -128,9 +135,10 @@
     
     NSDictionary *dic = _array[indexPath.row];
     NSArray *images = _gifImages[indexPath.row];
+    CGFloat animationTime = [_animationTimeArray[indexPath.row] floatValue];
     
     cell.titleStr.text = dic[@"title"];
-    cell.imageView.animationDuration = 2;
+    cell.imageView.animationDuration = animationTime;
     cell.imageView.image = images.firstObject;
     cell.imageView.animationImages = images;
 

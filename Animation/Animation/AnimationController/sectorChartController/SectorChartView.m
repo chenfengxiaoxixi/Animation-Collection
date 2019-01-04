@@ -106,16 +106,10 @@
         sectorLayer.lineWidth = radius;//这里为了实现扇形动画，lineWidth设置为radius，实际UIBezierPath圆内半径为radius/2，可以想象成，圆边框内外各占一半，组合成的lineWidth
         [self.layer addSublayer:sectorLayer];
         
-        UIBezierPath *path2 = [UIBezierPath bezierPath];
-        [path2 addArcWithCenter:center radius:radius startAngle:startRadian endAngle:endRadian clockwise:YES];
-        
-        //CGFloat theta0 = acos((path2.currentPoint.x-80)/radius);
-        
-        
         //每个扇形对象
         Sector *sector = [[Sector alloc] init];
         //起始角度为-90度，整体加上90度是为了和计算出的触点夹角统一起始角度
-        sector.startAngle = (180/M_PI) * startRadian + 90;
+        sector.startAngle = (180/M_PI) * startRadian + 90;//弧度转角度，可能会好理解些
         sector.endAngle = (180/M_PI) * endRadian + 90;
         sector.shapeLayer = sectorLayer;
         sector.animationTime = animationTime;
@@ -193,7 +187,7 @@
             if ([self.delegate respondsToSelector:@selector(sectorChart:didSelectedWithIndex:)]) {
                  [self.delegate sectorChart:self didSelectedWithIndex:i];
             }
-            
+            //扇形点击动画
             [self sectorAnimation:sector];
             
         }
@@ -221,7 +215,7 @@
 #pragma mark - CAAnimationDelegate
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
-{
+{   //上一个扇形动画结束，再执行下一个
     if (flag) {
         if ([[anim valueForKey:@"AnimationKey"] isEqualToString:@"sectorLayer"]) {
             

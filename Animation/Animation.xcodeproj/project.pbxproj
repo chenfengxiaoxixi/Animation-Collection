@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C15F1DA21DDE36E0048875A /* sectorChart.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C15F1D921DDE36E0048875A /* sectorChart.gif */; };
+		0C15F1E321DDF2CC0048875A /* YQSAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C15F1DD21DDF2CC0048875A /* YQSAnimationController.m */; };
+		0C15F1E421DDF2CC0048875A /* RecordAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C15F1DF21DDF2CC0048875A /* RecordAnimationController.m */; };
+		0C15F1E521DDF2CC0048875A /* CDRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C15F1E221DDF2CC0048875A /* CDRotationView.m */; };
+		0C15F1E921DDF42A0048875A /* CurvilinearMotionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C15F1E821DDF42A0048875A /* CurvilinearMotionController.m */; };
+		0C15F1EC21DE03650048875A /* BallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C15F1EB21DE03650048875A /* BallView.m */; };
 		0C1EC81A21D5C6510009C73B /* SectorChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1EC81921D5C6510009C73B /* SectorChartController.m */; };
+		0C2ECA1221DF387300344AC7 /* SceneKitSrc.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C2ECA1121DF387300344AC7 /* SceneKitSrc.scnassets */; };
 		0C3E94B221D775A300038430 /* MathTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3E94B121D775A300038430 /* MathTool.m */; };
 		0C4AF30621D0844600E12C5B /* yqs.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AF30521D0844600E12C5B /* yqs.gif */; };
-		0C4AF31021D0C7EC00E12C5B /* CDRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */; };
-		0C4AF31321D0CBE900E12C5B /* RecordAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AF31221D0CBE900E12C5B /* RecordAnimationController.m */; };
 		0C4AF31721D0DAE100E12C5B /* recordCD.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AF31621D0DAE100E12C5B /* recordCD.gif */; };
 		0C8BAC5A21D22D7500C400B5 /* FlashAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BAC5921D22D7500C400B5 /* FlashAnimationController.m */; };
 		0CAD582621D35D02005A9C16 /* flashing.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD582521D35D02005A9C16 /* flashing.gif */; };
@@ -23,22 +28,29 @@
 		A281DD6A21CDE47C007B4CA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281DD6821CDE47C007B4CA7 /* LaunchScreen.storyboard */; };
 		A281DD6D21CDE47C007B4CA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD6C21CDE47C007B4CA7 /* main.m */; };
 		A281DD7821CDEB25007B4CA7 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD7721CDEB25007B4CA7 /* UIView+Frame.m */; };
-		A281DD7E21CF6190007B4CA7 /* YQSAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD7D21CF6190007B4CA7 /* YQSAnimationController.m */; };
 		A281DD8121CF6356007B4CA7 /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD8021CF6356007B4CA7 /* HomeCollectionViewCell.m */; };
 		A281DD8521CF663C007B4CA7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD8421CF663C007B4CA7 /* BaseViewController.m */; };
 		A281DD8821CF6714007B4CA7 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD8721CF6714007B4CA7 /* UIColor+HexColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C15F1D921DDE36E0048875A /* sectorChart.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sectorChart.gif; sourceTree = "<group>"; };
+		0C15F1DC21DDF2CC0048875A /* YQSAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQSAnimationController.h; sourceTree = "<group>"; };
+		0C15F1DD21DDF2CC0048875A /* YQSAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQSAnimationController.m; sourceTree = "<group>"; };
+		0C15F1DF21DDF2CC0048875A /* RecordAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAnimationController.m; sourceTree = "<group>"; };
+		0C15F1E021DDF2CC0048875A /* CDRotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDRotationView.h; sourceTree = "<group>"; };
+		0C15F1E121DDF2CC0048875A /* RecordAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAnimationController.h; sourceTree = "<group>"; };
+		0C15F1E221DDF2CC0048875A /* CDRotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDRotationView.m; sourceTree = "<group>"; };
+		0C15F1E721DDF42A0048875A /* CurvilinearMotionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurvilinearMotionController.h; sourceTree = "<group>"; };
+		0C15F1E821DDF42A0048875A /* CurvilinearMotionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurvilinearMotionController.m; sourceTree = "<group>"; };
+		0C15F1EA21DE03650048875A /* BallView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BallView.h; sourceTree = "<group>"; };
+		0C15F1EB21DE03650048875A /* BallView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BallView.m; sourceTree = "<group>"; };
 		0C1EC81821D5C6510009C73B /* SectorChartController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorChartController.h; sourceTree = "<group>"; };
 		0C1EC81921D5C6510009C73B /* SectorChartController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectorChartController.m; sourceTree = "<group>"; };
+		0C2ECA1121DF387300344AC7 /* SceneKitSrc.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = SceneKitSrc.scnassets; sourceTree = "<group>"; };
 		0C3E94B021D775A300038430 /* MathTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathTool.h; sourceTree = "<group>"; };
 		0C3E94B121D775A300038430 /* MathTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathTool.m; sourceTree = "<group>"; };
 		0C4AF30521D0844600E12C5B /* yqs.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = yqs.gif; path = "../../../gif动画图/yqs.gif"; sourceTree = "<group>"; };
-		0C4AF30E21D0C7EC00E12C5B /* CDRotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDRotationView.h; sourceTree = "<group>"; };
-		0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDRotationView.m; sourceTree = "<group>"; };
-		0C4AF31121D0CBE900E12C5B /* RecordAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordAnimationController.h; sourceTree = "<group>"; };
-		0C4AF31221D0CBE900E12C5B /* RecordAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordAnimationController.m; sourceTree = "<group>"; };
 		0C4AF31621D0DAE100E12C5B /* recordCD.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = recordCD.gif; path = "../../../gif动画图/recordCD.gif"; sourceTree = "<group>"; };
 		0C8BAC5821D22D7500C400B5 /* FlashAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashAnimationController.h; sourceTree = "<group>"; };
 		0C8BAC5921D22D7500C400B5 /* FlashAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlashAnimationController.m; sourceTree = "<group>"; };
@@ -59,8 +71,6 @@
 		A281DD7621CDEB25007B4CA7 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		A281DD7721CDEB25007B4CA7 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		A281DD7921CDEFE3007B4CA7 /* MacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
-		A281DD7C21CF6190007B4CA7 /* YQSAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQSAnimationController.h; sourceTree = "<group>"; };
-		A281DD7D21CF6190007B4CA7 /* YQSAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQSAnimationController.m; sourceTree = "<group>"; };
 		A281DD7F21CF6356007B4CA7 /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
 		A281DD8021CF6356007B4CA7 /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
 		A281DD8321CF663C007B4CA7 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -80,6 +90,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C15F1DB21DDF2CC0048875A /* yqsAnimationController */ = {
+			isa = PBXGroup;
+			children = (
+				0C15F1DC21DDF2CC0048875A /* YQSAnimationController.h */,
+				0C15F1DD21DDF2CC0048875A /* YQSAnimationController.m */,
+			);
+			path = yqsAnimationController;
+			sourceTree = "<group>";
+		};
+		0C15F1DE21DDF2CC0048875A /* recordAnimationController */ = {
+			isa = PBXGroup;
+			children = (
+				0C15F1E121DDF2CC0048875A /* RecordAnimationController.h */,
+				0C15F1DF21DDF2CC0048875A /* RecordAnimationController.m */,
+				0C15F1E021DDF2CC0048875A /* CDRotationView.h */,
+				0C15F1E221DDF2CC0048875A /* CDRotationView.m */,
+			);
+			path = recordAnimationController;
+			sourceTree = "<group>";
+		};
+		0C15F1E621DDF31B0048875A /* curvilinearMotionController */ = {
+			isa = PBXGroup;
+			children = (
+				0C15F1E721DDF42A0048875A /* CurvilinearMotionController.h */,
+				0C15F1E821DDF42A0048875A /* CurvilinearMotionController.m */,
+				0C15F1EA21DE03650048875A /* BallView.h */,
+				0C15F1EB21DE03650048875A /* BallView.m */,
+			);
+			path = curvilinearMotionController;
+			sourceTree = "<group>";
+		};
 		0C1EC81721D5C6390009C73B /* sectorChartController */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,22 +144,12 @@
 		0C4AF30421D0841300E12C5B /* GifSrc */ = {
 			isa = PBXGroup;
 			children = (
+				0C15F1D921DDE36E0048875A /* sectorChart.gif */,
 				0CAD582521D35D02005A9C16 /* flashing.gif */,
 				0C4AF31621D0DAE100E12C5B /* recordCD.gif */,
 				0C4AF30521D0844600E12C5B /* yqs.gif */,
 			);
 			path = GifSrc;
-			sourceTree = "<group>";
-		};
-		0C4AF30721D0BEC900E12C5B /* recordAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				0C4AF31121D0CBE900E12C5B /* RecordAnimationController.h */,
-				0C4AF31221D0CBE900E12C5B /* RecordAnimationController.m */,
-				0C4AF30E21D0C7EC00E12C5B /* CDRotationView.h */,
-				0C4AF30F21D0C7EC00E12C5B /* CDRotationView.m */,
-			);
-			path = recordAnimation;
 			sourceTree = "<group>";
 		};
 		0C8BAC5721D22CAB00C400B5 /* flashAnimationController */ = {
@@ -161,6 +192,7 @@
 				A281DD7F21CF6356007B4CA7 /* HomeCollectionViewCell.h */,
 				A281DD8021CF6356007B4CA7 /* HomeCollectionViewCell.m */,
 				A281DD6321CDE47B007B4CA7 /* Main.storyboard */,
+				0C2ECA1121DF387300344AC7 /* SceneKitSrc.scnassets */,
 				A281DD6621CDE47C007B4CA7 /* Assets.xcassets */,
 				0C4AF30421D0841300E12C5B /* GifSrc */,
 				A281DD6821CDE47C007B4CA7 /* LaunchScreen.storyboard */,
@@ -193,21 +225,13 @@
 		A281DD7A21CE4FF0007B4CA7 /* AnimationController */ = {
 			isa = PBXGroup;
 			children = (
+				0C15F1E621DDF31B0048875A /* curvilinearMotionController */,
 				0C1EC81721D5C6390009C73B /* sectorChartController */,
 				0C8BAC5721D22CAB00C400B5 /* flashAnimationController */,
-				0C4AF30721D0BEC900E12C5B /* recordAnimation */,
-				A281DD7B21CF615E007B4CA7 /* yqsAnimation */,
+				0C15F1DE21DDF2CC0048875A /* recordAnimationController */,
+				0C15F1DB21DDF2CC0048875A /* yqsAnimationController */,
 			);
 			path = AnimationController;
-			sourceTree = "<group>";
-		};
-		A281DD7B21CF615E007B4CA7 /* yqsAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				A281DD7C21CF6190007B4CA7 /* YQSAnimationController.h */,
-				A281DD7D21CF6190007B4CA7 /* YQSAnimationController.m */,
-			);
-			path = yqsAnimation;
 			sourceTree = "<group>";
 		};
 		A281DD8221CF65D0007B4CA7 /* Base */ = {
@@ -277,7 +301,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CAD582621D35D02005A9C16 /* flashing.gif in Resources */,
+				0C15F1DA21DDE36E0048875A /* sectorChart.gif in Resources */,
 				0C4AF30621D0844600E12C5B /* yqs.gif in Resources */,
+				0C2ECA1221DF387300344AC7 /* SceneKitSrc.scnassets in Resources */,
 				A281DD6A21CDE47C007B4CA7 /* LaunchScreen.storyboard in Resources */,
 				A281DD6721CDE47C007B4CA7 /* Assets.xcassets in Resources */,
 				0C4AF31721D0DAE100E12C5B /* recordCD.gif in Resources */,
@@ -295,15 +321,17 @@
 				A281DD7821CDEB25007B4CA7 /* UIView+Frame.m in Sources */,
 				A281DD8821CF6714007B4CA7 /* UIColor+HexColor.m in Sources */,
 				A281DD6221CDE47B007B4CA7 /* ViewController.m in Sources */,
-				0C4AF31321D0CBE900E12C5B /* RecordAnimationController.m in Sources */,
+				0C15F1E921DDF42A0048875A /* CurvilinearMotionController.m in Sources */,
+				0C15F1E421DDF2CC0048875A /* RecordAnimationController.m in Sources */,
 				0C8BAC5A21D22D7500C400B5 /* FlashAnimationController.m in Sources */,
+				0C15F1E321DDF2CC0048875A /* YQSAnimationController.m in Sources */,
 				A26A657421DA43AB002DC770 /* SectorChartView.m in Sources */,
+				0C15F1E521DDF2CC0048875A /* CDRotationView.m in Sources */,
 				0C3E94B221D775A300038430 /* MathTool.m in Sources */,
-				A281DD7E21CF6190007B4CA7 /* YQSAnimationController.m in Sources */,
 				A281DD6D21CDE47C007B4CA7 /* main.m in Sources */,
+				0C15F1EC21DE03650048875A /* BallView.m in Sources */,
 				A281DD5F21CDE47B007B4CA7 /* AppDelegate.m in Sources */,
 				0C1EC81A21D5C6510009C73B /* SectorChartController.m in Sources */,
-				0C4AF31021D0C7EC00E12C5B /* CDRotationView.m in Sources */,
 				A281DD8521CF663C007B4CA7 /* BaseViewController.m in Sources */,
 				A281DD8121CF6356007B4CA7 /* HomeCollectionViewCell.m in Sources */,
 			);

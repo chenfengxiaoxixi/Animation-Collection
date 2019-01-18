@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import <SceneKit/SceneKit.h>
 
-@interface CurvilinearMotionController : BaseViewController
+@interface AirPlaneGameController : BaseViewController
 
 @end
 

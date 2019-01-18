@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"简单动画";
+    self.title = @"动画与游戏";
     
     [self buildUIStyle];
     [self configController];
@@ -66,14 +66,14 @@
                @{@"title":@"唱片",@"controller":@"RecordAnimationController"},
                @{@"title":@"闪烁",@"controller":@"FlashAnimationController"},
                @{@"title":@"扇形统计图",@"controller":@"SectorChartController"},
-               @{@"title":@"曲线运动",@"controller":@"CurvilinearMotionController"}];
+               @{@"title":@"飞机游戏",@"controller":@"AirPlaneGameController"}];
 }
 
 - (void)handleGifSrc
 {
     _gifImages = [[NSMutableArray alloc] init];
     _animationTimeArray = [[NSMutableArray alloc] init];
-    NSArray *array = @[@"yqs",@"recordCD",@"flashing",@"sectorChart",@"sectorChart"];
+    NSArray *array = @[@"yqs",@"recordCD",@"flashing",@"sectorChart",@"airPlaneGame"];
     
     for (int i = 0; i < array.count; i++) {
         

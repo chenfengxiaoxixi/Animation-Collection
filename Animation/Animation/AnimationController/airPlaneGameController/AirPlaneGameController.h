@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import <SceneKit/SceneKit.h>
+
 
 @interface AirPlaneGameController : BaseViewController
 

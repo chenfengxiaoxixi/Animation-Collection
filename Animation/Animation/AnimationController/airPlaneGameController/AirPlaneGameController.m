@@ -7,6 +7,7 @@
 //
 
 #import "AirPlaneGameController.h"
+#import <SceneKit/SceneKit.h>
 
 typedef NS_ENUM(NSUInteger,MaskType) {
     MaskTypeWithEnemy = 1,
@@ -70,7 +71,6 @@ typedef NS_ENUM(NSUInteger,MaskType) {
     _scnView.scene = scene;
     //物理引擎代理
     _scnView.scene.physicsWorld.contactDelegate = self;
-    
     
     //从场景获取实体
     _sphereNode = [_scnView.scene.rootNode childNodeWithName:@"sphere" recursively:YES];

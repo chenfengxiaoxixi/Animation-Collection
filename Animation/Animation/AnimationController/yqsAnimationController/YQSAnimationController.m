@@ -43,7 +43,7 @@
     
     ybArray = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i< 32; i++) {
+    for (int i = 0; i< 50; i++) {
         //生成随机坐标
         int x = rand()%215;
         int y = rand()%60 + 60;
@@ -122,7 +122,7 @@
         animation.delegate = self;
         animation.values = @[@(yb.frame.origin.y), @(yb.frame.origin.y+200)];
         
-        float startTime = 0 ;
+        float startTime = 0;
         
         animation.repeatCount = 1;
         

@@ -145,9 +145,9 @@
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
     
-    //先判断是否在园内
+    //先判断是否在圆内
     if ([MathTool point:point inCircleRect:self.bounds]) {
-        //再判断是否在扇形内
+        //再判断在哪个在扇形内
         [self calculatedPointInWhichRegion:point];
     }
 }

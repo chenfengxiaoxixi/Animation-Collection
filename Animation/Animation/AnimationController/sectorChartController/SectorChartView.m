@@ -155,7 +155,7 @@
 //计算触点在哪个扇形
 - (void)calculatedPointInWhichRegion:(CGPoint)point
 {
-    //起始边到触点的弧度
+    //起始边到触点的弧度，即起始边到触点边所形成的扇形圆心角
     CGFloat radian = [MathTool radiansToDegreesFromPointX:CGPointMake(radius, 0) ToPointY:point ToCenter:CGPointMake(radius, radius)];
     //弧长
     CGFloat l = radian * radius;

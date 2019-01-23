@@ -69,7 +69,7 @@ typedef NS_ENUM(NSUInteger,MaskType) {
     
     // set the scene to the view
     _scnView.scene = scene;
-    //物理引擎代理
+    //物理引擎关联代理
     _scnView.scene.physicsWorld.contactDelegate = self;
     
     //从场景获取实体
@@ -239,16 +239,6 @@ typedef NS_ENUM(NSUInteger,MaskType) {
     //开始碰撞,得到两个碰撞的node
     SCNNode *nodeA = contact.nodeA;
     SCNNode *nodeB = contact.nodeB;
-    
-    //执行碰撞后的操作
-    if (nodeA.physicsBody.categoryBitMask == MaskTypeWithEnemy)
-    {
-        NSLog(@"Enemy = %f",nodeA.physicsBody.velocity.y);
-    }
-    else if (nodeB.physicsBody.categoryBitMask == MaskTypeWithEnemy)
-    {
-        NSLog(@"Enemy = %f",nodeB.physicsBody.velocity.y);
-    }
     
     //执行碰撞后的操作
     if((nodeA.physicsBody.categoryBitMask == MaskTypeWithEnemy &&

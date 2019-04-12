@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "BaseTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -25,10 +25,18 @@
     [self.window makeKeyAndVisible];
     
     //根控制器
-    self.baseWindowNav = [[UINavigationController alloc] init] ;
+    self.baseWindowNav = [[UINavigationController alloc] init];
     self.window.rootViewController = self.baseWindowNav;
     
-    ViewController *mainTabVC = [[ViewController alloc] init];
+    //导航栏透明设置
+    [self.baseWindowNav.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    //去掉透明后导航栏下边的黑边
+    [self.baseWindowNav.navigationBar setShadowImage:[[UIImage alloc] init]];
+    [self.baseWindowNav.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.baseWindowNav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:kWhiteColor,
+                                                                          NSFontAttributeName:SYSTEMFONT(18)}];
+    
+    BaseTabBarController *mainTabVC = [[BaseTabBarController alloc] init];
     [self.baseWindowNav pushViewController:mainTabVC animated:NO];
     
     return YES;

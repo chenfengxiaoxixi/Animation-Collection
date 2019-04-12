@@ -17,9 +17,14 @@
 		0C4AF30621D0844600E12C5B /* yqs.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AF30521D0844600E12C5B /* yqs.gif */; };
 		0C4AF31721D0DAE100E12C5B /* recordCD.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AF31621D0DAE100E12C5B /* recordCD.gif */; };
 		0C665FCD21F1BB970040AA5D /* airPlaneGame.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C665FCC21F1BB970040AA5D /* airPlaneGame.gif */; };
+		0C842058225F2F4000A78777 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C842057225F2F4000A78777 /* BaseTabBarController.m */; };
+		0C842062225F4BB000A78777 /* DragAndRotateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C842061225F4BB000A78777 /* DragAndRotateController.m */; };
 		0C842BDE21F078C900651473 /* AirPlaneGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C842BDD21F078C900651473 /* AirPlaneGameController.m */; };
 		0C8BAC5A21D22D7500C400B5 /* FlashAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BAC5921D22D7500C400B5 /* FlashAnimationController.m */; };
+		0CA1F0472260633500905A69 /* 3DViewLayout.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0CA1F0462260633500905A69 /* 3DViewLayout.gif */; };
+		0CA1F0492260649600905A69 /* dragAndRotateView.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0CA1F0482260649600905A69 /* dragAndRotateView.gif */; };
 		0CAD582621D35D02005A9C16 /* flashing.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD582521D35D02005A9C16 /* flashing.gif */; };
+		0CD3620B225B2BBA00325DF3 /* 3DViewLayoutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3620A225B2BBA00325DF3 /* 3DViewLayoutController.m */; };
 		A26A657421DA43AB002DC770 /* SectorChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A26A657321DA43AB002DC770 /* SectorChartView.m */; };
 		A281DD5F21CDE47B007B4CA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD5E21CDE47B007B4CA7 /* AppDelegate.m */; };
 		A281DD6221CDE47B007B4CA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A281DD6121CDE47B007B4CA7 /* ViewController.m */; };
@@ -49,11 +54,19 @@
 		0C4AF30521D0844600E12C5B /* yqs.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = yqs.gif; path = "../../../gif动画图/yqs.gif"; sourceTree = "<group>"; };
 		0C4AF31621D0DAE100E12C5B /* recordCD.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = recordCD.gif; path = "../../../gif动画图/recordCD.gif"; sourceTree = "<group>"; };
 		0C665FCC21F1BB970040AA5D /* airPlaneGame.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = airPlaneGame.gif; path = "../../../gif动画图/airPlaneGame.gif"; sourceTree = "<group>"; };
+		0C842056225F2F4000A78777 /* BaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
+		0C842057225F2F4000A78777 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
+		0C842060225F4BB000A78777 /* DragAndRotateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragAndRotateController.h; sourceTree = "<group>"; };
+		0C842061225F4BB000A78777 /* DragAndRotateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragAndRotateController.m; sourceTree = "<group>"; };
 		0C842BDC21F078C900651473 /* AirPlaneGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirPlaneGameController.h; sourceTree = "<group>"; };
 		0C842BDD21F078C900651473 /* AirPlaneGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirPlaneGameController.m; sourceTree = "<group>"; };
 		0C8BAC5821D22D7500C400B5 /* FlashAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashAnimationController.h; sourceTree = "<group>"; };
 		0C8BAC5921D22D7500C400B5 /* FlashAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlashAnimationController.m; sourceTree = "<group>"; };
+		0CA1F0462260633500905A69 /* 3DViewLayout.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3DViewLayout.gif; sourceTree = "<group>"; };
+		0CA1F0482260649600905A69 /* dragAndRotateView.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dragAndRotateView.gif; sourceTree = "<group>"; };
 		0CAD582521D35D02005A9C16 /* flashing.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = flashing.gif; sourceTree = "<group>"; };
+		0CD36209225B2BBA00325DF3 /* 3DViewLayoutController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 3DViewLayoutController.h; sourceTree = "<group>"; };
+		0CD3620A225B2BBA00325DF3 /* 3DViewLayoutController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = 3DViewLayoutController.m; sourceTree = "<group>"; };
 		A26A657221DA43AB002DC770 /* SectorChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorChartView.h; sourceTree = "<group>"; };
 		A26A657321DA43AB002DC770 /* SectorChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectorChartView.m; sourceTree = "<group>"; };
 		A281DD5A21CDE47B007B4CA7 /* Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +145,8 @@
 		0C4AF30421D0841300E12C5B /* GifSrc */ = {
 			isa = PBXGroup;
 			children = (
+				0CA1F0482260649600905A69 /* dragAndRotateView.gif */,
+				0CA1F0462260633500905A69 /* 3DViewLayout.gif */,
 				0C665FCC21F1BB970040AA5D /* airPlaneGame.gif */,
 				0C15F1D921DDE36E0048875A /* sectorChart.gif */,
 				0CAD582521D35D02005A9C16 /* flashing.gif */,
@@ -139,6 +154,15 @@
 				0C4AF30521D0844600E12C5B /* yqs.gif */,
 			);
 			path = GifSrc;
+			sourceTree = "<group>";
+		};
+		0C842059225F4B2400A78777 /* dragAndRotateView */ = {
+			isa = PBXGroup;
+			children = (
+				0C842060225F4BB000A78777 /* DragAndRotateController.h */,
+				0C842061225F4BB000A78777 /* DragAndRotateController.m */,
+			);
+			path = dragAndRotateView;
 			sourceTree = "<group>";
 		};
 		0C842BDB21F078C900651473 /* airPlaneGameController */ = {
@@ -157,6 +181,15 @@
 				0C8BAC5921D22D7500C400B5 /* FlashAnimationController.m */,
 			);
 			path = flashAnimationController;
+			sourceTree = "<group>";
+		};
+		0CD36208225B2B7200325DF3 /* 3DViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				0CD36209225B2BBA00325DF3 /* 3DViewLayoutController.h */,
+				0CD3620A225B2BBA00325DF3 /* 3DViewLayoutController.m */,
+			);
+			path = 3DViewLayout;
 			sourceTree = "<group>";
 		};
 		A281DD5121CDE47B007B4CA7 = {
@@ -223,6 +256,8 @@
 		A281DD7A21CE4FF0007B4CA7 /* AnimationController */ = {
 			isa = PBXGroup;
 			children = (
+				0C842059225F4B2400A78777 /* dragAndRotateView */,
+				0CD36208225B2B7200325DF3 /* 3DViewLayout */,
 				0C842BDB21F078C900651473 /* airPlaneGameController */,
 				0C1EC81721D5C6390009C73B /* sectorChartController */,
 				0C8BAC5721D22CAB00C400B5 /* flashAnimationController */,
@@ -237,6 +272,8 @@
 			children = (
 				A281DD8321CF663C007B4CA7 /* BaseViewController.h */,
 				A281DD8421CF663C007B4CA7 /* BaseViewController.m */,
+				0C842056225F2F4000A78777 /* BaseTabBarController.h */,
+				0C842057225F2F4000A78777 /* BaseTabBarController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -302,11 +339,13 @@
 				0C15F1DA21DDE36E0048875A /* sectorChart.gif in Resources */,
 				0C665FCD21F1BB970040AA5D /* airPlaneGame.gif in Resources */,
 				0C4AF30621D0844600E12C5B /* yqs.gif in Resources */,
+				0CA1F0472260633500905A69 /* 3DViewLayout.gif in Resources */,
 				0C2ECA1221DF387300344AC7 /* SceneKitSrc.scnassets in Resources */,
 				A281DD6A21CDE47C007B4CA7 /* LaunchScreen.storyboard in Resources */,
 				A281DD6721CDE47C007B4CA7 /* Assets.xcassets in Resources */,
 				0C4AF31721D0DAE100E12C5B /* recordCD.gif in Resources */,
 				A281DD6521CDE47B007B4CA7 /* Main.storyboard in Resources */,
+				0CA1F0492260649600905A69 /* dragAndRotateView.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,11 +363,14 @@
 				0C8BAC5A21D22D7500C400B5 /* FlashAnimationController.m in Sources */,
 				0C15F1E321DDF2CC0048875A /* YQSAnimationController.m in Sources */,
 				A26A657421DA43AB002DC770 /* SectorChartView.m in Sources */,
+				0CD3620B225B2BBA00325DF3 /* 3DViewLayoutController.m in Sources */,
 				0C15F1E521DDF2CC0048875A /* CDRotationView.m in Sources */,
+				0C842058225F2F4000A78777 /* BaseTabBarController.m in Sources */,
 				0C842BDE21F078C900651473 /* AirPlaneGameController.m in Sources */,
 				0C3E94B221D775A300038430 /* MathTool.m in Sources */,
 				A281DD6D21CDE47C007B4CA7 /* main.m in Sources */,
 				A281DD5F21CDE47B007B4CA7 /* AppDelegate.m in Sources */,
+				0C842062225F4BB000A78777 /* DragAndRotateController.m in Sources */,
 				0C1EC81A21D5C6510009C73B /* SectorChartController.m in Sources */,
 				A281DD8521CF663C007B4CA7 /* BaseViewController.m in Sources */,
 				A281DD8121CF6356007B4CA7 /* HomeCollectionViewCell.m in Sources */,
@@ -480,7 +522,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chenfeng.Animation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chenfeng.AnimationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -499,7 +541,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chenfeng.Animation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chenfeng.AnimationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger,DisplayAnimationType)
+{
+    DisplayAnimationTypeWith2D,
+    DisplayAnimationTypeWith3D
+};
+
 @interface ViewController : UIViewController
 
+@property (nonatomic, assign) DisplayAnimationType type;
 
 @end
 

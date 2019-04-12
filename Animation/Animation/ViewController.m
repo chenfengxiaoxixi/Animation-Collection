@@ -20,11 +20,18 @@
 
 @implementation ViewController
 
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        _type = DisplayAnimationTypeWith2D;
+//    }
+//    return self;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.title = @"动画与游戏";
     
     [self buildUIStyle];
     [self configController];
@@ -46,15 +53,6 @@
 
 - (void)buildUIStyle
 {
-    [self.navigationController.navigationBar setTranslucent:true];
-    //把背景设为空
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    //处理导航栏有条线的问题
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-    //[self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:kWhiteColor,
-                                NSFontAttributeName:SYSTEMFONT(18)}];
     UIImageView *beijing = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, Main_Screen_Height)];
     beijing.image = [UIImage imageNamed:@"beijing-a"];
     [self.view addSubview:beijing];
@@ -62,18 +60,25 @@
 
 - (void)configController
 {
-    _array = @[@{@"title":@"摇钱树",@"controller":@"YQSAnimationController"},
-               @{@"title":@"唱片",@"controller":@"RecordAnimationController"},
-               @{@"title":@"闪烁",@"controller":@"FlashAnimationController"},
-               @{@"title":@"扇形统计图",@"controller":@"SectorChartController"},
-               @{@"title":@"飞机游戏",@"controller":@"AirPlaneGameController"}];
+    if (_type == DisplayAnimationTypeWith2D) {
+        _array = @[@{@"title":@"摇钱树",@"controller":@"YQSAnimationController",@"gif":@"yqs"},
+                   @{@"title":@"唱片",@"controller":@"RecordAnimationController",@"gif":@"recordCD"},
+                   @{@"title":@"闪烁",@"controller":@"FlashAnimationController",@"gif":@"flashing"},
+                   @{@"title":@"扇形统计图",@"controller":@"SectorChartController",@"gif":@"sectorChart"}];
+    }
+    else
+    {
+        _array = @[@{@"title":@"飞机游戏",@"controller":@"AirPlaneGameController",@"gif":@"airPlaneGame"},
+                   @{@"title":@"立方体",@"controller":@"_DViewLayoutController",@"gif":@"3DViewLayout"},
+                   @{@"title":@"拖拽旋转视图",@"controller":@"DragAndRotateController",@"gif":@"dragAndRotateView"}];
+    }
 }
 
 - (void)handleGifSrc
 {
     _gifImages = [[NSMutableArray alloc] init];
     _animationTimeArray = [[NSMutableArray alloc] init];
-    NSArray *array = @[@"yqs",@"recordCD",@"flashing",@"sectorChart",@"airPlaneGame"];
+    NSArray *array = [_array valueForKey:@"gif"];
     
     for (int i = 0; i < array.count; i++) {
         
@@ -190,7 +195,7 @@
     if (!_collectionView) {
         
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, TopHeight, Main_Screen_Width, Main_Screen_Height - TopHeight) collectionViewLayout:flowLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, TopHeight, Main_Screen_Width, Main_Screen_Height - TopHeight - TabbarHeight) collectionViewLayout:flowLayout];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.backgroundColor = kClearColor;
